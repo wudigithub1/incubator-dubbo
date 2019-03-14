@@ -18,6 +18,8 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://copilot.blackducksoftware.com/ci/travis/scripts/upload)
 
 after_failure:
   - if [ -f dubbo.log ]; then echo "------TAIL of dubbo.log------"; tail -n 1000 dubbo.log; echo "------END of dubbo.log------"; fi
+  - bash <(curl -s https://copilot.blackducksoftware.com/ci/travis/scripts/upload)
